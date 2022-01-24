@@ -180,20 +180,20 @@ fi
 
 echo "Removing temporary files: $(date)"
 
-rm $password.auc.bed
-rm $password.auc
-rm $password.threshold.txt
-rm $password.auc.threshold.bed
-rm $password.fdr.txt  ## Added 5/15/19 for SEACR_1.1
-rm $5.auc.threshold.merge.bed
-if [[ -f $2 ]]
-then
-	rm $password2.auc.bed
-	rm $password2.auc
-	rm $password2.auc.threshold.bed
-fi
-if [[ $norm == "norm" ]]
-then
-	rm -f $password.norm.txt
-fi
+# rm $password.auc.bed
+# rm $password.auc
+# rm $password.threshold.txt
+# rm $password.auc.threshold.bed
+# rm $password.fdr.txt  ## Added 5/15/19 for SEACR_1.1
+# rm $5.auc.threshold.merge.bed
+# if [[ -f $2 ]]
+# then
+# 	rm $password2.auc.bed
+# 	rm $password2.auc
+# 	rm $password2.auc.threshold.bed
+# fi
+# if [[ $norm == "norm" ]]
+# then
+# 	rm -f $password.norm.txt
+# fi
 echo "Done: $(date)"

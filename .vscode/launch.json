@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args" : ["${workspaceFolder}/Testfiles/CTCF_DE_chr1_100Mb.bedgraph.txt"]
+            "args" : ["${workspaceFolder}/Testfiles/CTCF_DE_chr1_100Mb.bedgraph.txt","${workspaceFolder}/Testfiles/IgG_DE_chr1_100Mb.bedgraph.txt"]
         }
     ]
 }

@@ -69,16 +69,34 @@ def make_signal_block(bedgraph_list,filename):
             ### output the signal blocks for this consecutive signal block 
             outList.append([current_seqname,str(current_start),str(current_end),str(current_AUC),str(current_max),str(max_coordinate),str(current_num)])
     return outList
-        
+def make_AUC_list(signal_block_list,filename):
+    print("Generating .auc file from: ", filename)
+    outList = []
+    for record in signal_block_list:
+        outList.append([float(record[3]), int(record[6])])
+    return outList
+def calculate_threshold_with_normalized_control():
+    return None ### TODO 
 def main():
     print("Running python version of SEACR_1.3.sh")
     target_bdg_file = sys.argv[1]
     target_list = load_bedgraph_to_list(target_bdg_file)
     target_signal_block_list = make_signal_block(target_list, "target")
+
+    control_bdg_file = sys.argv[2]
+    control_list = load_bedgraph_to_list(control_bdg_file)
+    control_signal_block_list = make_signal_block(control_list, "control")
+
     with open("target.auc.bed",mode = "w")as outFile:
         for line in target_signal_block_list:
             outLine = "\t".join(line) + "\n"
             outFile.write(outLine)
-    
+    with open("control.auc.bed",mode = "w")as outFile:
+        for line in control_signal_block_list:
+            outLine = "\t".join(line) + "\n"
+            outFile.write(outLine)
+    target_auc_list = make_AUC_list(target_signal_block_list,"target")
+    control_auc_list = make_AUC_list(control_signal_block_list,"control")
+
     
 main()
